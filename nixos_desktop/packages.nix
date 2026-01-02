@@ -9,7 +9,6 @@
     pkgs.wget
     pkgs.bat
     pkgs.fastfetch
-    pkgs.zsh
     pkgs.starship
     pkgs.btop
     pkgs.clash-verge-rev
