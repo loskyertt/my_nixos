@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      # ./gpu_modules  # Nvidia 配置
       ./packages.nix  # 系统软件包
       ./gnome_pkgs.nix  # gnome 软件包
       ./input.nix  # 输入法配置
