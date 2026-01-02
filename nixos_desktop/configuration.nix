@@ -13,6 +13,7 @@
       ./gnome_pkgs.nix  # gnome 软件包
       ./input.nix  # 输入法配置
       ./shell.nix  # shell 配置
+      ./proxy.nix  # 代理配置
     ];
 
   # 允许使用非自由软件

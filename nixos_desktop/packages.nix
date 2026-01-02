@@ -11,7 +11,6 @@
     pkgs.fastfetch
     pkgs.starship
     pkgs.btop
-    pkgs.clash-verge-rev
     pkgs.google-chrome
     pkgs.vscode
   ];
