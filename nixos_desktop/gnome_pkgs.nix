@@ -5,6 +5,7 @@
   services = {
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
+    
     # false: 不使用 gnome 的应用程序
     # gnome.core-apps.enable = false;
   };

@@ -9,30 +9,38 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       # ./gpu_modules  # Nvidia 配置
+      ./proxy  # 代理配置
       ./packages.nix  # 系统软件包
-      ./gnome_pkgs.nix  # gnome 软件包
+      ./gnome_pkgs.nix  # GNOME 软件包
       ./input.nix  # 输入法配置
       ./shell.nix  # shell 配置
-      ./proxy.nix  # 代理配置
     ];
 
   # 允许使用非自由软件
   nixpkgs.config.allowUnfree = true;
 
-  # 启用 Flakes 实验功能
+  # 启用 Flakes 实验功能（配置好网络代理后再开启）
   # nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = false;
+  # boot.loader.systemd-boot.enable = true;
 
   # 启用 GRUB + EFI 模式
-  boot.loader.grub = {
-    enable = true;
-    efiSupport = true;          # generate grubx64.efi
-    device = "nodev";
-  };
+  boot.loader = {
+    # 确保主板能自动识别 NixOS 启动项
+    efi.canTouchEfiVariables = true; 
+  
+    grub = {
+      enable = true;
+      efiSupport = true;  # 生成 grubx64.efi
+      device = "nodev"; # EFI 模式下保持 nodev 是对的
+    };
 
-  boot.loader.efi.canTouchEfiVariables = true;
+    # 主题配置参考 Nix pkgs Source
+    theme = pkgs.catppuccin-grub.override {
+      flavor = "mocha";
+    };
+  };
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -58,12 +66,7 @@
   # };
 
   # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-  services = {
-    xserver.enable = true;
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
-  };
+  services.xserver.enable = true;
 
 
   # Configure keymap in X11
