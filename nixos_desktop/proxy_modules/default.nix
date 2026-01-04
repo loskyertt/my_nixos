@@ -1,4 +1,4 @@
-# /etc/nixos/proxy/default.nix
+# /etc/nixos/proxy_modules/default.nix
 {
   imports = [
     # 选择下面任意一种配置即可

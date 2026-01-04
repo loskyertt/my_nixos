@@ -9,18 +9,19 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       # ./gpu_modules  # Nvidia 配置
-      ./proxy  # 代理配置
+      ./proxy_modules  # 代理配置
+      ./input_modules  # 输入法配置
       ./packages.nix  # 系统软件包
       ./gnome_pkgs.nix  # GNOME 软件包
-      ./input  # 输入法配置
       ./shell.nix  # shell 配置
+      ./docker.nix  # docker 配置
     ];
 
   # 允许使用非自由软件
   nixpkgs.config.allowUnfree = true;
 
   # 启用 Flakes 实验功能（配置好网络代理后再开启）
-  # nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Use the systemd-boot EFI boot loader.
   # boot.loader.systemd-boot.enable = true;
@@ -34,11 +35,10 @@
       enable = true;
       efiSupport = true;  # 生成 grubx64.efi
       device = "nodev"; # EFI 模式下保持 nodev 是对的
-    };
-
-    # 主题配置参考 Nix pkgs Source
-    theme = pkgs.catppuccin-grub.override {
-      flavor = "mocha";
+      # 主题配置参考 Nix pkgs Source
+      theme = pkgs.catppuccin-grub.override {
+        flavor = "mocha";
+      };
     };
   };
 

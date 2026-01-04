@@ -1,3 +1,5 @@
+# /etc/nixos/flake.nix
+# 在未配置好代理之前，建议先别用 flake.nix
 {
   description = "NixOS flake";
 

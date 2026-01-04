@@ -1,4 +1,4 @@
-# /etc/nixos/proxy/mihomo.nix
+# /etc/nixos/proxy_modules/mihomo.nix
 { config, lib, pkgs, ... }:
 
 {

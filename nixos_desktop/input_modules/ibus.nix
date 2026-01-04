@@ -1,4 +1,4 @@
-# /etc/nixos/input/ibus.nix
+# /etc/nixos/input_modules/ibus.nix
 { config, lib, pkgs, ... }: 
 
 {

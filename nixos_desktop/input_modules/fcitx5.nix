@@ -1,4 +1,4 @@
-# /etc/nixos/input/fcitx5.nix
+# /etc/nixos/input_modules/fcitx5.nix
 { config, lib, pkgs, ... }: 
 
 {

@@ -19,7 +19,7 @@
   fonts.packages = with pkgs; [
     # noto-fonts-cjk-sans  # 思源黑体，覆盖所有 CJK 字符
     # noto-fonts-cjk-serif  # 宋体
-    noto-fonts-emoji  # emoji
+    noto-fonts-color-emoji  # emoji 样式
     # Maple Mono (Ligature TTF unhinted)
     maple-mono.truetype
     # Maple Mono NF (Ligature unhinted)

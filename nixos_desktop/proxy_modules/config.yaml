@@ -1,4 +1,4 @@
-# /etc/nixos/proxy/config.yaml
+# /etc/nixos/proxy_modules/config.yaml
 ## ================= 说明 =================
 # - 此配置搭配 mihomo 内核使用
 # - 可以参考官方配置修改：https://github.com/MetaCubeX/mihomo/blob/Meta/docs/config.yaml
