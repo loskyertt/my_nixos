@@ -12,7 +12,7 @@
       ./proxy  # 代理配置
       ./packages.nix  # 系统软件包
       ./gnome_pkgs.nix  # GNOME 软件包
-      ./input.nix  # 输入法配置
+      ./input  # 输入法配置
       ./shell.nix  # shell 配置
     ];
 

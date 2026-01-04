@@ -10,8 +10,7 @@
     # TODO 请将下面的 nixos 替换成你的 hostname
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       modules = [
-        # 这里导入之前我们使用的 configuration.nix，
-        # 这样旧的配置文件仍然能生效
+        # 这里导入之前我们使用的 configuration.nix，这样旧的配置文件仍然能生效
         ./configuration.nix
       ];
     };
