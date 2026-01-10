@@ -8,12 +8,26 @@
     
     # false: 不使用 GNOME 的应用程序
     # gnome.core-apps.enable = false;
+
+    # 启用 GNOME Keyring 守护进程
+    # gnome.gnome-keyring.enable = true;
   };
 
   environment.systemPackages = [
     # GNOME 软件包
-    pkgs.gnome-extension-manager
-    pkgs.gnome-tweaks
+    pkgs.gnome-extension-manager  # 扩展管理器
+    pkgs.gnome-tweaks  # GNOME 优化工具
+    pkgs.ghostty  # 终端
+    pkgs.mission-center  # 资源监视
+
+    # 下面这些应用已包含进了 core-apps 中
+    # pkgs.baobab  # 磁盘使用情况分析器
+    # pkgs.gnome-calculator  # 计算器
+    # pkgs.gnome-clocks  # 时钟
+    # pkgs.gnome-font-viewer  # 字体查看器
+    # pkgs.gnome-logs  # 日志查看器
+    # pkgs.nautilus  # 文件管理器
+    # pkgs.gnome-text-editor  # 文本编辑器
 
     # GNOME 扩展（这部分作为系统扩展，也可以不加，可单独在 gnome-extension-manager 中下载）
     pkgs.gnomeExtensions.dash-to-dock  # 把 dash 转成 dock 栏
@@ -46,5 +60,6 @@
     gnome-maps  # GNOME 版地图，基于 OpenStreetMap
     gnome-weather  # 天气
     gnome-contacts  # 联系人
+    gnome-console  # 终端
   ]);
 }
