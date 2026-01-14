@@ -1,5 +1,5 @@
-# docker 配置
-{ pkgs, ... }:
+# /etc/nixos/docker.nix
+{ config, lib, pkgs, ... }:
 
 {
   # 启用 Docker 服务

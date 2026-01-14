@@ -1,3 +1,5 @@
+# /etc/nixos/configuration.nix
+
 # Edit this configuration file to define what should be installed on
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
@@ -9,28 +11,22 @@
 
 {
   imports = [
-    # include NixOS-WSL modules
-    #<nixos-wsl/modules>
-
-    # include other modules
-    ./packages.nix
-    ./shell.nix
-    ./docker.nix
-    #./nvidia.nix
+    ./packages.nix  # 软件包管理
+    ./shell.nix  # shell 配置
+    ./docker.nix  # docker 配置
   ];
 
   wsl.enable = true;
   wsl.defaultUser = "nixos";
-  wsl.useWindowsDriver = true;
-  
-  # 让 NixOS 能够运行那些“动态链接”的外部程序（如 nvidia-smi）
+
+  # 启用 flakes 实验功能
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  # 让 NixOS 能够运行那些“动态链接”的外部程序
   programs.nix-ld.enable = true;
-  
+
   # 允许使用非自由软件
   nixpkgs.config.allowUnfree = true;
-
-  # 启用 flakes 特性
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

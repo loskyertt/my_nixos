@@ -1,5 +1,5 @@
-# ---------- shell 配置 ------------
-{ pkgs, ... }:
+# /etc/nixos/shell.nix
+{ config, lib, pkgs, ... }:
 
 {
   # 启用 Zsh 及其系统级配置
@@ -11,7 +11,6 @@
     syntaxHighlighting.enable = true;
   };
 
-  # 设置默认 Shell (针对你的用户)
-  # 用户名是 nixos
+  # 设置默认 Shell (用户名：nixos)
   users.users.nixos.shell = pkgs.zsh;
 }

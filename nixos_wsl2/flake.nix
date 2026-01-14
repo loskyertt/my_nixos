@@ -1,3 +1,5 @@
+# /etc/nixos/flake.nix
+
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -12,10 +14,6 @@
         modules = [
           nixos-wsl.nixosModules.default
           ./configuration.nix
-          {
-            system.stateVersion = "25.05";
-            wsl.enable = true;
-          }
         ];
       };
     };
