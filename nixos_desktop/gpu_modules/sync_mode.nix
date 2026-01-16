@@ -2,8 +2,27 @@
 { config, lib, pkgs, ... }:
 
 {
+  # Load nvidia driver for Xorg and Wayland
   # If it's an AMD integrated graphics card, change modesetting to amdgpu.
   services.xserver.videoDrivers = [ "modesetting" "nvidia" ];
+
+  hardware.nvidia = {
+
+    # Modesetting is required.
+    modesetting.enable = true;
+
+    # powerManagement.enable = false;
+
+    # powerManagement.finegrained = false;
+
+    open = false;  # 使用专有驱动
+
+    # Enable the Nvidia settings menu,
+    nvidiaSettings = true;
+
+    # Optionally, you may need to select the appropriate driver version for your specific GPU.
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
 
   # Sync Mode
   hardware.nvidia.prime = {

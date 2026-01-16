@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
+  # 配置 zsh
   programs.zsh = {
     enable = true;
     # 启用自动建议

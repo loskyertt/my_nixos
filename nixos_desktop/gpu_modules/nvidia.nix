@@ -1,28 +1,22 @@
-# /etc/nixos/gpu_modules/nvidia.nix
+# /etc/nixos/gpu_modules/nvidia_de.nix
 { config, lib, pkgs, ... }:
 
 {
-  # Enable OpenGL
-  hardware.graphics = {
-    enable = true;
-  };
-
   # Load nvidia driver for Xorg and Wayland
-  # services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.nvidia = {
 
     # Modesetting is required.
     modesetting.enable = true;
 
-    # powerManagement.enable = false;
+    powerManagement.enable = ture;  # 休眠唤醒后不会花屏
 
-    # powerManagement.finegrained = false;
+    powerManagement.finegrained = false;
 
-    open = false;
+    open = false;  # 使用专有驱动
 
-    # Enable the Nvidia settings menu,
-    nvidiaSettings = true;
+    nvidiaSettings = true;  # Enable the Nvidia settings menu
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     package = config.boot.kernelPackages.nvidiaPackages.stable;

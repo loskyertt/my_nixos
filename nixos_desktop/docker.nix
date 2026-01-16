@@ -9,9 +9,6 @@
     package = pkgs.docker_28;
   };
   
-  # 将你的用户（我这里是 sky）加入 docker 组
-  users.users.sky.extraGroups = [ "docker" ];
-
   # GPU 直通
   # hardware.nvidia-container-toolkit.enable = true;
 

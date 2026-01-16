@@ -1,10 +1,17 @@
 # /etc/nixos/gpu_modules/default.nix
-let
-  mode = "offload";   # To enable sync, change it to “sync”
-in
+{ config, lib, pkgs, ... }:
+
 {
+  # 开启图形加速支持
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+
+  # 如果有 Nvidia 显卡，根据需求选择下面一种配置
   imports = [
-    ./nvidia.nix
-    ./${mode}_mode.nix
+    # ./nvidia.nix  # 用于台式机（独立 Nvidia 显卡）
+    # ./offload_mode.nix  # 用于笔记本电脑（offload 模式）
+    # ./sync_mode.nix  # 用于笔记本电脑（sync 模式）
   ];
 }

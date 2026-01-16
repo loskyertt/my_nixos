@@ -16,18 +16,13 @@
   systemd.services.mihomo.serviceConfig.AmbientCapabilities = [ "CAP_NET_BIND_SERVICE" "CAP_NET_ADMIN" ];
   systemd.services.mihomo.serviceConfig.CapabilityBoundingSet = [ "CAP_NET_BIND_SERVICE" "CAP_NET_ADMIN" ];
 
-  # 内核转发
-  # 默认是开启的，可以用 sysctl net.ipv4.ip_forward 查看
-  # 若未开启，则取消注释即可
+  # 内核转发：默认是开启的，可以用 sysctl net.ipv4.ip_forward 查看
   # boot.kernel.sysctl = {
   #   "net.ipv4.ip_forward" = 1;
   #   # "net.ipv6.conf.all.forwarding" = 1;  # 处理 ipv6 分组，一般不需要开启
   # };
 
-  # 仍然无法使用 TUN，可能是防火墙的原因，可以先关闭试试
-  # networking.firewall.enable = false;
-
-  # 若确实是防火墙的原因，则用下面这段配置
+  # 若是防火墙的原因，则用下面这段配置
   networking.firewall = {
     enable = true;
     checkReversePath = "loose";
