@@ -1,4 +1,4 @@
-# /etc/nixos/packages.nix
+# /etc/nixos/pkgs_modules/sys_pkgs.nix
 { config, lib, pkgs, ... }: 
 
 {

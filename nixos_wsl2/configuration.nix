@@ -10,11 +10,7 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports = [
-    ./packages.nix  # 软件包管理
-    ./shell.nix  # shell 配置
-    ./docker.nix  # docker 配置
-  ];
+  imports = [ ];
 
   wsl.enable = true;
   wsl.defaultUser = "nixos";

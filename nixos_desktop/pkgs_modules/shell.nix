@@ -1,3 +1,4 @@
+# /etc/nixos/pkgs_modules/shell.nix
 { config, lib, pkgs, ... }:
 
 {

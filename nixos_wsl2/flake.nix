@@ -16,7 +16,11 @@
         # 引入模块
         modules = [
           nixos-wsl.nixosModules.default
-          ./configuration.nix
+          ./configuration.nix     # 系统配置
+          # ./nvidia.nix            # nvidia 配置
+          ./packages.nix          # 软件包管理
+          ./shell.nix             # shell 配置
+          ./docker.nix            # docker 配置
         ];
       };
     };

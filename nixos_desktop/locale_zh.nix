@@ -34,7 +34,7 @@
       maple-mono.NF-unhinted        # Maple Mono NF (Ligature unhinted)
       maple-mono.NF-CN-unhinted     # Maple Mono NF CN (Ligature unhinted)
     ];
-    
+
     fontconfig = {
       defaultFonts = {
         sansSerif = [ "Noto Sans CJK SC" "DejaVu Sans" ];

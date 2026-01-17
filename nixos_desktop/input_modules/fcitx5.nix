@@ -2,7 +2,7 @@
 { config, lib, pkgs, ... }: 
 
 {
-  # fcitx5 环境变量设置
+  # fcitx5 系统环境变量设置
   environment.variables = {
     GTK_IM_MODULE = "fcitx";
     QT_IM_MODULE = "fcitx";

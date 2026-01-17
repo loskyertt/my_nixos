@@ -1,5 +1,5 @@
-# /etc/nixos/gpu_modules/offload_mode.nix
-{ config, lib, pkgs, ... }:
+# /etc/nixos/gpu_modules/dual_mode.nix
+{ pkgs, lib, config, ... }:
 
 {
   # Load nvidia driver for Xorg and Wayland
@@ -23,17 +23,32 @@
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     package = config.boot.kernelPackages.nvidiaPackages.stable;
 
-    # Offload Mode
+  # Offload Mode
     prime = {
       offload = {
         enable = true;
-        enableOffloadCmd = true;  # 自动生成 nvidia-offload 命令
+        enableOffloadCmd = true;
       };
 
       # Make sure to use the correct Bus ID values for your system!
       intelBusId = "PCI:0:2:0";
       nvidiaBusId = "PCI:14:0:0";
       # amdgpuBusId = "PCI:54:0:0"; For AMD GPU
+    };
+  };
+
+  # Gmame Modee
+  specialisation = {
+    gaming-time.configuration = {
+      system.nixos.tags = [ "gaming-time" ];  # boot label
+
+      hardware.nvidia = {
+        prime.sync.enable = lib.mkForce true;
+        prime.offload = {
+          enable = lib.mkForce false;
+          enableOffloadCmd = lib.mkForce false;
+        };
+      };
     };
   };
 }

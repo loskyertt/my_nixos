@@ -16,16 +16,14 @@
 
       # 引入模块
       modules = [
+        ./gpu_modules                 # 显卡模块
+        ./proxy_modules               # 代理模块
+        ./desktop_modules             # 桌面环境模块
+        ./input_modules               # 输入法模块
+        ./pkgs_modules                # 软件包管理模块
         ./configuration.nix           # 默认配置
-        ./gpu_modules                 # 显卡配置
-        ./proxy_modules               # 代理配置
-        ./desktop_modules             # 桌面环境配置
-        ./input_modules               # 输入法配置
-        ./locale_zh.nix               # 中文设置
         ./fix_network.nix             # 额外的网络配置
-        ./packages.nix                # 系统软件包
-        ./shell.nix                   # shell 配置
-        ./docker.nix                  # docker 配置
+        ./locale_zh.nix               # 中文设置
       ];
     };
   };
