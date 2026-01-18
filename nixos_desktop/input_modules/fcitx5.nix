@@ -13,7 +13,7 @@
     enable = true;
     type = "fcitx5";
     fcitx5.addons = with pkgs; [
-      (fcitx5-rime.override { rimeDataPkgs = [ rime-ice ]; })  # 雾凇拼音
+      fcitx5-rime  # 数据目录：~/.local/share/fcitx5/rime/
       qt6Packages.fcitx5-chinese-addons  # table input method support
       fcitx5-gtk             # alternatively, kdePackages.fcitx5-qt
       catppuccin-fcitx5    # a color theme

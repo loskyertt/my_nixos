@@ -1,9 +1,9 @@
-# /etc/nixos/pkgs_modules/sys_pkgs.nix
+# /etc/nixos/pkgs_modules/packages.nix
 { config, lib, pkgs, ... }: 
 
 {
   # 启用 firefox
-  programs.firefox.enable = true;
+  # programs.firefox.enable = true;
 
   # 系统软件包
   environment.systemPackages = [

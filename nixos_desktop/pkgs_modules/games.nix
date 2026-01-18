@@ -12,7 +12,7 @@
     pkgs.protonup-qt  # 管理 proton 版本
   ];
 
-  # proton-ge 的安装位置
+  # proton 的安装位置
   environment.sessionVariables = {
     STEAM_EXTRA_COMPAT_TOOLS_PATHS =
       "\${HOME}/.steam/root/compatibilitytools.d";

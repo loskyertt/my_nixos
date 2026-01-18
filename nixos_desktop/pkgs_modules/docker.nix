@@ -12,5 +12,5 @@
   # Nvidia GPU 直通
   # hardware.nvidia-container-toolkit.enable = true;  
   # virtualisation.docker.daemon.settings.features.cdi = true;  # Regular Docker
-  # virtualisation.docker.rootless.daemon.settings.features.cdi = true;  # If using Rootless Docker
+  # virtualisation.docker.rootless.daemon.settings.features.cdi = true;  # OR if using Rootless Docker
 }

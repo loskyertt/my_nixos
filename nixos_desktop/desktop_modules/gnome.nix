@@ -23,7 +23,6 @@
     # ---- GNOME 软件包 ----
     pkgs.gnome-extension-manager  # 扩展管理器
     pkgs.gnome-tweaks  # GNOME 优化工具
-    pkgs.evolve-core  # GTK 主题管理器
 
     # ---- GNOME 系统扩展 ----
     pkgs.gnomeExtensions.dash-to-dock  # 把 dash 转成 dock 栏

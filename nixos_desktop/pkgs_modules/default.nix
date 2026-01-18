@@ -3,7 +3,7 @@
   imports = [
     ./docker.nix      # docker 配置
     # ./games.nix       # 游戏配置
+    ./packages.nix    # 系统软件包配置
     ./shell.nix       # shell 配置
-    ./sys_pkgs.nix    # 系统软件包配置
   ];
 }

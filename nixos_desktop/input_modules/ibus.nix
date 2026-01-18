@@ -6,8 +6,7 @@
     enable = true;
     type = "ibus";
     ibus.engines = with pkgs.ibus-engines; [
-      # 注入雾凇拼音数据
-      (rime.override { rimeDataPkgs = [ pkgs.rime-ice ]; })
+      rime  # 数据目录：~/.config/ibus/rime
     ];
   };
 }

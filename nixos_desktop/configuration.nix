@@ -13,11 +13,14 @@
   # ---- 1. 引导与系统内核 ----
   boot.loader = {
     efi.canTouchEfiVariables = true;  # 确保主板能自动识别 NixOS 启动项 
+    # 如果是挂载到 /mnt/boot/efi：
+    # efi.efiSysMountPoint = "/boot/efi";  # 默认是 "/boot"
   
     grub = {
       enable = true;
       efiSupport = true;    # 生成 grubx64.efi
       device = "nodev";
+      # useOSProber = true;  # 自动识别其他 OS 的引导项
       
       # 主题配置参考 Nix pkgs Source
       theme = pkgs.catppuccin-grub.override {
@@ -50,8 +53,9 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;  # 允许使用非自由软件
 
-  # ---- 4. 区域设置 ----
+  # ---- 4. 区域和时钟设置 ----
   time.timeZone = "Asia/Shanghai";
+  # time.hardwareClockInLocalTime = true;  # 将 RTC 时间标准设置为本地时间，与 Windows 的默认配置兼容
 
   # ---- 5. 硬件与多媒体 ----
   # Configure keymap in X11

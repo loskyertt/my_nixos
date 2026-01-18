@@ -3,7 +3,7 @@
 
 {
   nix.settings = {
-    # 镜像源配置（按顺序，优先使用国内镜像）
+    # 镜像源配置，有网络代理就可以不用配置（按顺序，优先使用国内镜像）
     # substituters = lib.mkForce [
     #   "https://mirror.sjtu.edu.cn/nix-channels/store"  # 上交镜像源
     #   "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"  # 清华镜像源
