@@ -10,7 +10,7 @@
     # Modesetting is required.
     modesetting.enable = true;
 
-    powerManagement.enable = ture;  # 休眠唤醒后不会花屏
+    powerManagement.enable = true;  # 休眠唤醒后不会花屏
 
     powerManagement.finegrained = false;
 

@@ -1,9 +1,9 @@
-# /etc/nixos/pkgs_modules/docker.nix
+# /etc/nixos/modules/docker.nix
 { config, lib, pkgs, ... }: 
 
 {
   # Nvidia GPU 直通
-  # hardware.nvidia-container-toolkit.enable = true;  
+  hardware.nvidia-container-toolkit.enable = true;
 
   virtualisation.docker = {
     
@@ -11,6 +11,6 @@
     
     package = pkgs.docker_28;  # 具体版本名取决于你当前的 nixpkgs 仓库中包含哪些定义,你可以改为你需要的版本
 
-    # daemon.settings.features.cdi = true;  # Regular Docker
+		daemon.settings.features.cdi = true;  # Regular Docker
   };
 }
