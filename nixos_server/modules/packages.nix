@@ -13,4 +13,10 @@
     pkgs.starship  # 终端美化
     pkgs.btop  # CLI 资源监视
   ];
+
+  # 配置 direnv
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
 }

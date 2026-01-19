@@ -25,4 +25,10 @@
     pkgs.gst_all_1.gst-plugins-bad
     pkgs.gst_all_1.gst-plugins-ugly
   ];
+
+  # 配置 direnv
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
 }
