@@ -17,6 +17,7 @@
       # 引入模块
       modules = [
 				./modules								  # 其他配置模块
+        ./proxy_modules           # 代理配置
         ./configuration.nix       # 默认配置
       ];
     };

@@ -10,19 +10,18 @@
     ./hardware-configuration.nix
   ];
 
-  # ---- 1. 引导与系统内核 ----
+  # ---- 1. Boot and System Kernel ----
   boot.loader = {
-    efi.canTouchEfiVariables = true;  # 确保主板能自动识别 NixOS 启动项 
-    # 如果是挂载到 /mnt/boot/efi：
-    efi.efiSysMountPoint = "/boot/efi";  # 默认是 "/boot"
+    efi.canTouchEfiVariables = true;
+    # If mounted to /mnt/boot/efi:
+    efi.efiSysMountPoint = "/boot/efi";  # The default is “/boot”.
   
     grub = {
       enable = true;
-      efiSupport = true;    # 生成 grubx64.efi
+      efiSupport = true;
       device = "nodev";
-      # useOSProber = true;  # 自动识别其他 OS 的引导项
       
-      # 主题配置参考 Nix pkgs Source
+      # Theme Configuration
       theme = pkgs.catppuccin-grub.override {
         flavor = "mocha";
       };
@@ -32,29 +31,28 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  # ---- 2. 网络和防火墙 ----
+  # ---- 2. Network and Firewall ----
   networking.hostName = "nixos"; # Define your hostname.
 
-  # WiFi is automatically configured during system deployment
   networking.networkmanager = {
     enable = true;
-    # 确保在系统启动时自动建立连接
+    # WiFi is automatically configured during system deployment
     ensureProfiles.profiles = {
       "MyHomeWifi" = {
         connection = {
-          id = "your_wifi_name";  # WiFi 名称，用 `nmcli connection show` 获得
+          id = "your_wifi_name";  # WiFi NAME, obtained using `nmcli connection show`
           type = "wifi";
           autoconnect = true;
-					permissions = "";  # 确保该连接在系统层级生效，不绑定特定用户
+					permissions = "";  # Ensure that this connection takes effect at the system level and is not bound to a specific user.
         };
         wifi = {
           mode = "infrastructure";
-          ssid = "your_wifi_SSID";  # 你连接的 WiFi 的 SSID
+          ssid = "your_wifi_SSID";  # The SSID of the WiFi you are connected to
         };
         wifi-security = {
           auth-alg = "open";
-          key-mgmt = "wpa-psk";  # 密钥管理方式，家用 WiFi 几乎都是 WPA-PSK
-          psk = "your_wifi__secret";  # 你的 WiFi 密码
+          key-mgmt = "wpa-psk";  # Key management methods: Home Wi-Fi networks almost exclusively use WPA-PSK.
+          psk = "your_wifi__secret";  # Your WiFi password
         };
       };
     };
