@@ -65,6 +65,12 @@
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
+  # 开启图形加速支持
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+
   # 音频服务配置
   services.pipewire = {
     enable = true;

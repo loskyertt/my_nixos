@@ -16,7 +16,7 @@
 
       # 引入模块
       modules = [
-        ./gpu_modules                 # 显卡模块
+        # ./nvidia_modules              # 显卡模块
         ./proxy_modules               # 代理模块
         ./desktop_modules             # 桌面环境模块
         ./input_modules               # 输入法模块

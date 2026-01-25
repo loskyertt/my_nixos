@@ -72,6 +72,7 @@
   # ---- 3. Nix 特性设置 (仅保留必要项) ----
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;  # 允许使用非自由软件
+  programs.nix-ld.enable = true;  # VSCode 的 remotessh 需要
 
   # ---- 4. 区域和时钟设置 ----
   time.timeZone = "Asia/Shanghai";
@@ -83,6 +84,12 @@
     device  =  "/var/lib/swapfile" ; 
     size  =  16 * 1024 ;  # 16 GB 
   }];
+
+  # 开启图形加速支持
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
 
   # ---- 6. 用户与安全 ----
   # 记得用 passwd 为用户设置密码
@@ -109,8 +116,6 @@
   services.openssh.enable = true;  # Enable the OpenSSH daemon.
 
   # ---- 8. 其他 ----
-  programs.nix-ld.enable = true;  # VSCode 的 remotessh 需要
-
   # 版本号要和自己原本系统中的该属性值一致！！！！
   system.stateVersion = "25.11";  # 永远不要修改这项
 }

@@ -12,17 +12,25 @@
 {
   imports = [ ];
 
+  # ---- 1. wsl 配置 ----
   wsl.enable = true;
   wsl.defaultUser = "nixos";
+  wsl.useWindowsDriver = true;
 
-  # 启用 flakes 实验功能
+  # ---- 2. Nix 特性设置 (仅保留必要项) ----
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nixpkgs.config.allowUnfree = true;  # 允许使用非自由软件
+  programs.nix-ld.enable = true;  # VSCode 的 wsl 需要
 
-  # 让 NixOS 能够运行那些“动态链接”的外部程序
-  programs.nix-ld.enable = true;
+  # ---- 3. 用户与安全 ----
+  users.users.nixos = {
+    extraGroups = ["wheel" "docker" ];
+    # 用户软件包
+    packages = with pkgs; [
+      tree
+    ];
+  };
 
-  # 允许使用非自由软件
-  nixpkgs.config.allowUnfree = true;
-
+  # ---- 4. 其他 ----
   system.stateVersion = "25.05";
 }

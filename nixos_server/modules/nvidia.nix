@@ -2,12 +2,7 @@
 { config, lib, pkgs, ... }:
 
 {
-  # 开启图形加速支持
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-  };
-	
+  # ---- 1. 驱动配置 ----
   services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.nvidia = {
@@ -32,4 +27,8 @@
     # 根据需要，您可能需要为您的特定显卡选择合适的驱动程序版本
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
+
+  # ---- 2. docker GPU 直通 ----
+  hardware.nvidia-container-toolkit.enable = true;
+  virtualisation.dockerdaemon.settings.features.cdi = true;  # Regular Docker
 }
