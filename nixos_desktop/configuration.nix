@@ -102,6 +102,11 @@
     ];
   };
 
+  # 配置 sudo 显示星号
+  security.sudo.extraConfig = ''
+    Defaults pwfeedback
+  '';
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;

@@ -31,6 +31,11 @@
     ];
   };
 
+  # 配置 sudo 显示星号
+  security.sudo.extraConfig = ''
+    Defaults pwfeedback
+  '';
+
   # ---- 4. 其他 ----
   system.stateVersion = "25.05";
 }
