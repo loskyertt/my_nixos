@@ -13,14 +13,14 @@
   # ---- 1. 引导与系统内核 ----
   boot.loader = {
     efi.canTouchEfiVariables = true;  # 确保主板能自动识别 NixOS 启动项 
-    # 如果是挂载到 /mnt/boot/efi：
-    # efi.efiSysMountPoint = "/boot/efi";  # 默认是 "/boot"
+    # 挂载到 /mnt/boot/efi：
+    efi.efiSysMountPoint = "/boot/efi";  # 默认是 "/boot"
   
     grub = {
       enable = true;
       efiSupport = true;    # 生成 grubx64.efi
       device = "nodev";
-      # useOSProber = true;  # 自动识别其他 OS 的引导项
+      useOSProber = true;  # 自动识别其他 OS 的引导项
       
       # 主题配置参考 Nix pkgs Source
       theme = pkgs.catppuccin-grub.override {

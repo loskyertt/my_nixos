@@ -45,6 +45,6 @@
     syntaxHighlighting.enable = true;  # 启用语法高亮
   };
 
-  # 设置默认 Shell (用户名：nixos)
-  users.users.nixos.shell = pkgs.zsh;
+  # 设置默认 Shell (用户名：sky)
+  users.users.sky.shell = pkgs.zsh;
 }
