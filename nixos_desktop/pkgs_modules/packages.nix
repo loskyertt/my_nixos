@@ -32,34 +32,12 @@
     nix-direnv.enable = true;
   };
 
-  # ---- 3. docker 配置 ----
-  virtualisation.docker = {
-    enable = true;  # 启用 Docker 守护进程
-    # package = pkgs.docker_28;  # 指定安装版本，默认是最新版
-  };
-
-  # ---- 4. zsh 配置 ----
+  # ---- 3. zsh 配置 ----
   programs.zsh = {
     enable = true;  # 启用自动建议
     autosuggestions.enable = true;
     syntaxHighlighting.enable = true;  # 启用语法高亮
   };
-
   # 设置默认 Shell (用户名：sky)
   users.users.sky.shell = pkgs.zsh;
-
-  # ---- 5. flatpak 配置 ----
-  # services.flatpak.enable = true;   # 启用 flatpak
-  # systemd.services.flatpak-repo = {  # 设置系统级软件的仓库
-  #   wantedBy = [ "multi-user.target" ];
-  #   path = [ pkgs.flatpak ];
-  #   script = ''
-  #     flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-  #   '';
-  # };
-  # 让 GNOME 认得 Flatpak 的图标
-  # environment.extraInit = ''
-  #   [[ -d ~/.local/share/flatpak/exports/share ]] && export XDG_DATA_DIRS="$XDG_DATA_DIRS:$HOME/.local/share/flatpak/exports/share"
-  #   export XDG_DATA_DIRS="$XDG_DATA_DIRS:/var/lib/flatpak/exports/share"
-  # '';
 }

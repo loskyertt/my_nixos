@@ -102,7 +102,7 @@
     ];
   };
 
-  # 配置 sudo 显示星号
+  # 配置 sudo 输入密码时显示星号
   security.sudo.extraConfig = ''
     Defaults pwfeedback
   '';

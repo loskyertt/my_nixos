@@ -9,8 +9,4 @@
     # ./offload_mode.nix  # 用于笔记本电脑（offload 模式）
     # ./sync_mode.nix  # 用于笔记本电脑（sync 模式）
   ];
-
-  # docker GPU 直通
-  hardware.nvidia-container-toolkit.enable = true;
-  virtualisation.dockerdaemon.settings.features.cdi = true;  # Regular Docker
 }
