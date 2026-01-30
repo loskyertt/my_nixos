@@ -42,10 +42,10 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # 若代理软件的 TUN 模式无法使用，可能是防火墙的原因，可以先关闭试试
+  # 关闭防火墙
   # networking.firewall.enable = false;
 
-  # 在防火墙中开放端口。
+  # 在防火墙中开放端口
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
 
@@ -117,6 +117,9 @@
 
   # ---- 7. 系统服务 ----
   services.openssh.enable = true;  # Enable the OpenSSH daemon.
+  services.flatpak.enable = true;
+  # 启用 systemd DNS 解析器守护程序 systemd-resolved
+  # services.resolved.enable = true;  # TUN 模式不管用时可以开启这个试试
 
   # ---- 8. 其他 ----
   # 版本号要和自己原本系统中的该属性值一致！！！！

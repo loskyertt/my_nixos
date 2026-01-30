@@ -10,9 +10,6 @@
     tunMode = true;
   };
 
-  # 启用 systemd DNS 解析器守护程序 systemd-resolved（TUN 模式不管用时可以开启这个试试）
-  # services.resolved.enable = true;
-
   # 若是防火墙的原因
   networking.firewall = {
     enable = true;
@@ -20,4 +17,5 @@
     # 填入 tun 接口名字（通过 ip a 确认）
     trustedInterfaces = [ "Meta" ];
   };
+
 }

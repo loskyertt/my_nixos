@@ -12,7 +12,7 @@
     pkgs.starship  # 终端美化
     pkgs.ghostty  # 终端
     pkgs.btop  # CLI 资源监视
-    pkgs.google-chrome
+    # pkgs.google-chrome
     pkgs.vscode
     pkgs.mission-center  # 资源监视
 
@@ -24,7 +24,7 @@
   ];
 
   # 启用 firefox
-  # programs.firefox.enable = true;
+  programs.firefox.enable = true;
 
   # ---- 2. direnv 配置 ----
   programs.direnv = {
