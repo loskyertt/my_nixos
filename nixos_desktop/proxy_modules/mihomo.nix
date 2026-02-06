@@ -7,7 +7,7 @@
     tunMode = true;
     package = pkgs.mihomo;
     # webui = pkgs.metacubexd;
-    webui = ./zashboard;
+    webui = ./zashboard;  # 使用本地 webui
 
     # 指定你的配置文件路径
     configFile = ./config.yaml;  # 注：每次修改 config.yaml 后，要执行 `nixos-rebuild switch` 来保证生效

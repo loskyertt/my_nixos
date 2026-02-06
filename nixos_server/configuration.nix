@@ -36,6 +36,7 @@
 
   networking.networkmanager = {
     enable = true;
+    # 如果用的 WIFI，则使用下面这段配置
     # WiFi is automatically configured during system deployment
     ensureProfiles.profiles = {
       "MyHomeWifi" = {
