@@ -24,5 +24,27 @@
     remotePlay.openFirewall = true;  # 在防火墙中为Steam远程游玩打开端口
     dedicatedServer.openFirewall = true;  # 为Source专用服务器托管打开端口
     gamescopeSession.enable = true;  # 启用GameScope会话
+
+    package = pkgs.steam.override {
+      extraPkgs = pkgs': with pkgs'; [
+        xorg.libXcursor
+        xorg.libXi
+        xorg.libXinerama
+        xorg.libXScrnSaver
+        libpng
+        libpulseaudio
+        libvorbis
+        stdenv.cc.cc.lib # Provides libstdc++.so.6
+        libkrb5
+        keyutils
+        # Add other libraries as needed
+      ];
+    };
+  };
+
+  # 启用 Gamescope
+  programs.gamescope = {
+    enable = true;
+    capSysNice = true; # 允许 Gamescope 提升进程优先级，减少卡顿
   };
 }

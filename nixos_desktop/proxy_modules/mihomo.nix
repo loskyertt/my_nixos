@@ -13,6 +13,9 @@
     configFile = ./config.yaml;  # 注：每次修改 config.yaml 后，要执行 `nixos-rebuild switch` 来保证生效
   };
 
+  # 禁用开机自启
+  # systemd.services.mihomo.wantedBy = lib.mkForce [ ];
+
   # 若开启了防火墙
   networking.firewall = {
     enable = true;

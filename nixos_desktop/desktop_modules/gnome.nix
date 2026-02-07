@@ -20,8 +20,8 @@
   environment.systemPackages = [
     # ---- GNOME 软件包 ----
     pkgs.gnome-extension-manager  # 扩展管理器
-    # pkgs.gnome-tweaks  # GNOME 优化工具
-    pkgs.refine  # GNOME 优化工具
+    pkgs.gnome-tweaks  # GNOME 优化工具
+    # pkgs.refine  # GNOME 优化工具
     pkgs.nautilus  # 文件管理器
     pkgs.file-roller  # 压缩解压缩工具
     pkgs.gnome-text-editor  # 文本编辑器
