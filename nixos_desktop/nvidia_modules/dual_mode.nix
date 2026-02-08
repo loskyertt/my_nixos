@@ -37,7 +37,7 @@
     };
   };
 
-  # Gmame Modee
+  # Gaming Mode
   specialisation = {
     gaming-time.configuration = {
       system.nixos.tags = [ "gaming-time" ];  # boot label

@@ -21,9 +21,9 @@
   # ---- 2. 配置 steam ----
   programs.steam = {
     enable = true;
-    remotePlay.openFirewall = true;  # 在防火墙中为Steam远程游玩打开端口
-    dedicatedServer.openFirewall = true;  # 为Source专用服务器托管打开端口
-    gamescopeSession.enable = true;  # 启用GameScope会话
+    remotePlay.openFirewall = true;  # 在防火墙中为 Steam 远程游玩打开端口
+    dedicatedServer.openFirewall = true;  # 为 Source 专用服务器托管打开端口
+    gamescopeSession.enable = true;  # 启用 GameScope 会话
 
     package = pkgs.steam.override {
       extraPkgs = pkgs': with pkgs'; [
@@ -45,6 +45,6 @@
   # 启用 Gamescope
   programs.gamescope = {
     enable = true;
-    capSysNice = true; # 允许 Gamescope 提升进程优先级，减少卡顿
+    capSysNice = true;  # 允许 Gamescope 提升进程优先级，减少卡顿
   };
 }

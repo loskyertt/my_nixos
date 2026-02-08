@@ -29,8 +29,13 @@
     };
   };
 
-  # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_latest;  # latest kernel
+  # boot.kernelPackages = pkgs.linuxPackages_zen;  # zen kernel
+  # boot.kernelParams = [ 
+  #   # "quiet" 
+  #   # "splash" 
+  #   "i915.enable_psr=0"  # 禁用 Intel 的面板自刷新（解决 steam gamescope 屏幕闪烁问题）
+  # ];
 
   # ---- 2. 网络和防火墙 ----
   networking.hostName = "nixos"; # Define your hostname.
